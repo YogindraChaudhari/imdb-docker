@@ -1,0 +1,22 @@
+{
+  "name": "IMDB App",
+  "short_name": "IMDB App",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#ffe701",
+  "background_color": "#ffe701",
+  "display": "standalone"
+}
