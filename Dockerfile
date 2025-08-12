@@ -1,4 +1,10 @@
+# Step 1: Build the React app
 FROM node:20-alpine AS build
+
+# Accept API key as a build argument
+ARG VITE_REACT_APP_TMDB_API_KEY
+# Make it available to Vite during build
+ENV VITE_REACT_APP_TMDB_API_KEY=$VITE_REACT_APP_TMDB_API_KEY
 
 WORKDIR /app
 
@@ -11,8 +17,11 @@ RUN npm install
 
 COPY . .
 
+# Build with the env var injected
 RUN npm run build
 
+
+# Step 2: Serve with Nginx
 FROM nginx:1.27-alpine
 
 COPY --from=build /app/dist /usr/share/nginx/html
